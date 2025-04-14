@@ -1,0 +1,53 @@
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">BlogNest</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <% if (locals.user) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/addblog">Add Blog</a>
+            </li>
+          <% } %>
+        </ul>
+
+        <% if (locals.user) { %>
+          <a href="/logout" class="d-inline-flex py-1 px-2 text-decoration-none border 
+          border-danger rounded-2" 
+          style="transition: all 0.3s ease-in-out; color: red; background-color: transparent;"
+          onmouseover="this.style.backgroundColor='red'; this.style.color='white';"
+          onmouseout="this.style.backgroundColor='transparent'; this.style.color='red';">
+            Logout
+          </a>
+        <% } else { %>
+          <a href="/signup" class="d-inline-flex py-1 px-2 text-decoration-none border 
+          border-primary rounded-2" 
+          style="transition: all 0.3s ease-in-out; color: #0d6efd; background-color: transparent;"
+          onmouseover="this.style.backgroundColor='#0d6efd'; this.style.color='white';"
+          onmouseout="this.style.backgroundColor='transparent'; this.style.color='#0d6efd';">
+            Sign Up
+          </a>
+          <a href="/login" class="d-inline-flex py-1 px-2 mx-2 text-decoration-none border 
+          border-success rounded-2"
+          style="transition: all 0.3s ease-in-out; color: green; background-color: transparent;"
+          onmouseover="this.style.backgroundColor='green'; this.style.color='white'"
+          onmouseout="this.style.backgroundColor='transparent'; this.style.color='green';">
+          Login
+        </a>
+         <% } %>
+    
+
+      </div>
+    </div>
+  </nav>
+<% if (error) { %>
+  <div class="alert alert-danger m-1" role="alert">
+   <%= error %>
+  </div>
+<% } %>
