@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const Blog = require('../models/blog');
 const jwt = require('jsonwebtoken');
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const getHomepage = async(req, res)=>{
     const allBlogs = await Blog.find({}).populate('author');
